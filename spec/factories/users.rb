@@ -7,11 +7,11 @@ FactoryGirl.define do
     end
   end
 
-  factory :user_sign_up, :class => User do
+  factory :user_sign_up, class: User do
     sequence(:email) { |n| "example#{n}@signupdomain.com" }
     password 'password'
     factory :patient_sign_up do
-     type 'User::Patient'
+      type 'User::Patient'
     end
   end
 end

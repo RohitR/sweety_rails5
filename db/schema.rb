@@ -10,25 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724153510) do
-
-  create_table "blood_glucoses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "level"
-    t.date     "check_up_date"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["user_id"], name: "index_blood_glucoses_on_user_id", using: :btree
+ActiveRecord::Schema.define(version: 20_160_724_153_510) do
+  create_table 'blood_glucoses', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    t.integer  'level'
+    t.date     'check_up_date'
+    t.integer  'user_id'
+    t.datetime 'created_at',    null: false
+    t.datetime 'updated_at',    null: false
+    t.index ['user_id'], name: 'index_blood_glucoses_on_user_id', using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "type"
-    t.string   "username"
-    t.string   "full_name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+  create_table 'users', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    t.string   'type'
+    t.string   'username'
+    t.string   'full_name'
+    t.string   'email'
+    t.string   'password_digest'
+    t.datetime 'created_at',      null: false
+    t.datetime 'updated_at',      null: false
   end
-
 end

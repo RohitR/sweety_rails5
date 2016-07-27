@@ -4,6 +4,6 @@ class User < ApplicationRecord
   cattr_accessor :current
 
   validates :email, presence: true,
-            format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Invalid format"},
-            uniqueness: true
+                    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Invalid format' },
+                    uniqueness: true
 end

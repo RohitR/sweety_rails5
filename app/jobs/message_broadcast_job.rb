@@ -6,7 +6,8 @@ class MessageBroadcastJob < ApplicationJob
   end
 
   private
-    def render_reading(reading)
-      ApplicationController.renderer.render(partial: 'blood_glucoses/blood_glucose', locals: { blood_glucose: reading })
-    end
+
+  def render_reading(reading)
+    ApplicationController.renderer.render(partial: 'blood_glucoses/blood_glucose', locals: { blood_glucose: reading })
+  end
 end
