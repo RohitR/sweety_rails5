@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sweety</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<body class="home">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+              <div class="logo">
+
+              </div>
+                <div class="navi">
+                    <ul>
+                        <li class="active"><a href="/blood_glucoses/show"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                        <li><a href="/reports/daily_reports"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Daily Report</span></a></li>
+                        <li><a href="/reports/monthly_reports"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Monthly Report</span></a></li>
+                        <li><a href="/reports/date_wise_reports"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Custom Report</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
+                <div class="row">
+                    <header>
+                        <div class="col-md-7">
+                            <nav class="navbar-default pull-left">
+                                <div class="navbar-header">
+
+                                </div>
+                            </nav>
+
+                        </div>
+                        <div class="col-md-5">
+                            <div class="header-rightside">
+                                <ul class="list-inline header-top pull-right">
+                                    <li class="dropdown"><%=current_user.full_name%>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                          </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="navbar-content">
+                                                    <%= link_to ' Sign out', welcome_path( current_user.id ), :method => :delete %>
+                                                      <div class="divider">
+                                                      </div>
+                                                    <%= link_to 'change password', edit_change_user_password_path( current_user.id ) %>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="user-dashboard">
+                  <%= flash_messages %>
+                  <%= yield %>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+
+
+<%=form_for :date,:url=>{:controller=>:reports,:action=>:date_wise_reports},:remote=>true,:html=>{class: 'form-inline'} do |f|%>
+<div class="form-group">
+  <label for="exampleInputName2">Start Date</label>
+<input type="text" name="date[start_date]" class="form-control" data-behaviour=datepicker>
+<label for="exampleInputName2">End Date</label>
+<input type="text" name="date[end_date]" class="form-control" data-behaviour=datepicker>
+</div>
+<%= f.submit "Go",:class=>"btn btn-primary"%>
+<%end%>
+
+
+<div style="margin-top:20px" id="reports">
+<%= render :partial=>'reports'%>
+<div>

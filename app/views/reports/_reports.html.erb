@@ -1,0 +1,26 @@
+
+<p><label>  minimal level</label> : <%=@report.min_value.to_f%></p>
+<p><label>  average level</label> : <%=@report.avg_value.to_f%></p>
+<p><label>  maximum level</label> : <%=@report.max_value.to_f%></p>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>#</th>
+      <th>Patient Name</th>
+      <th>Glucose Level</th>
+      <th>Read at</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @reports.each_with_index do |report,i| %>
+<%i+=1%>
+    <tr>
+      <th scope="row"><%=i%></th>
+      <td><%=report.patient_name%></td>
+      <td><%=report.level%></td>
+      <td><%=report.check_up_date%></td>
+    </tr>
+   <%end%>
+  </tbody>
+</table>

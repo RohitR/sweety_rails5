@@ -1,0 +1,43 @@
+<h1>Check up details</h1>
+<div >
+<ul id="reading" class="list-group">
+  <%= render @blood_glucoses %>
+</ul>
+</div>
+
+
+
+
+<form class="glucose-form">
+
+    <fieldset class="form-group">
+<label>Select Date</label>
+      <div class="row">
+        <div class="col-md-4"><input type="text" class="form-control" id="read_date" data-behaviour=datepicker ></div>
+
+      </div>
+</fieldset>
+<fieldset class="form-group">
+  <label>Enter Your Glucose Reading</label>
+  <div class="row">
+    <div class="col-md-4">
+    <input type="text" class="form-control" data-behavior="glucose_reader">
+  </div>
+  </div>
+
+</fieldset>
+</form>
+
+
+<script type="text/javascript">
+
+
+$("#read_date").on("dp.change", function(e) {
+
+            $.ajax({
+              url:"/blood_glucoses/show",
+              data: {date: e.target.value},
+              dataType: "script"
+            })
+        });
+</script>

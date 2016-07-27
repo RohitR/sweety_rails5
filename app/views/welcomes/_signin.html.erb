@@ -1,0 +1,22 @@
+<%= form_for(@sign_in, :url => welcomes_path,html:{ class: "form-signin"}) do |form| %>
+
+    <span id="reauth-email" class="reauth-email"></span>
+    <%= form.text_field :email,class: "form-control",id: "inputEmail",autofocus:true,required:true, placeholder:"Email address" %>
+
+    <%= form.password_field :password,class: "form-control",required:true, placeholder:"Password" %>
+  <div id="remember" class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div>
+    <%= form.submit 'Sign in',:class=>"btn btn-lg btn-primary btn-block btn-signin" %>
+
+<%end%>
+<div class="col-md-12 control">
+  <div style="border-top: 1px solid#888; padding-bottom:15px; padding-top:15px; font-size:85%" >
+      Don't have an account!
+          <a class="cursor-pointer" onClick="$('#signinbox').hide(); $('#signupbox').show()">
+            Sign Up Here
+          </a>
+        </div>
+</div>
