@@ -5,6 +5,7 @@ class BloodGlucoseReport
     today_date=Date.today
     @start_date = params.fetch(:start_date, today_date).to_date
     @end_date = params.fetch(:end_date, today_date).to_date
+    self.current_user=User.current
    end
 
   def daily_report
@@ -23,7 +24,7 @@ class BloodGlucoseReport
   end
 
   def report
-    blood_glucoses = self.current_user.blood_glucoses.where(blood_glucoses: { check_up_date: @start_date..@end_date }).select("blood_glucoses.*,#{self.current_user.full_name} as patient_name")
+    blood_glucoses = self.current_user.blood_glucoses.where(blood_glucoses: { check_up_date: @start_date..@end_date }).select("blood_glucoses.*,'#{self.current_user.full_name}' as patient_name")
     self.min_value = blood_glucoses.minimum(:level)
     self.max_value = blood_glucoses.maximum(:level)
     self.avg_value = blood_glucoses.average(:level)

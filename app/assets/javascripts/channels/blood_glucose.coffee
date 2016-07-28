@@ -10,11 +10,11 @@ App.blood_glucose = App.cable.subscriptions.create "BloodGlucoseChannel",
     # Called when there's incoming data on the websocket for this channel
 
   enter_reading: (reading,date) ->
-    $('#error_explanation').remove();
+    $('#error-explanation').remove();
     @perform 'enter_reading', {reading: reading,date: date}
 
   delete_reading: (reading_id) ->
-    $('#error_explanation').remove();
+    $('#error-explanation').remove();
     @perform 'delete_reading', id: reading_id
 
 

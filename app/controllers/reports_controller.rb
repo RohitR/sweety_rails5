@@ -26,6 +26,5 @@ class ReportsController < ApplicationController
 
   def set_up_blood_glucose_report
     @report = BloodGlucoseReport.new(date_params)
-    @report.current_user = current_user
   end
 end
