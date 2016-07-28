@@ -14,9 +14,8 @@ class WelcomesController < ApplicationController
       redirect_to blood_glucoses_show_path
       flash[:success] = 'User was successfully signed in.'
     else
+      flash[:danger] = 'Invalid credentials'
       render :new
-      flash[:danger] = @sign_in.errors.full_messages.to_sentence
-
     end
   end
 

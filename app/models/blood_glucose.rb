@@ -2,7 +2,8 @@ class BloodGlucose < ApplicationRecord
   belongs_to :user
   after_create_commit { MessageBroadcastJob.perform_later self }
 
-  validates :level, presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 220 }
+  validates :level, presence: true
+  validates :level, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 220 }, :allow_nil => true
   validates :check_up_date, presence: true
   validate :validate_daily_limit_exceeds, on: :create
 
