@@ -2,8 +2,9 @@ class BloodGlucoseReport
   attr_accessor :start_date, :end_date, :min_value, :avg_value, :max_value, :current_user
   def initialize(params = {})
     params = {} if params.nil?
-    @start_date = params.fetch(:start_date, Date.today).to_date
-    @end_date = params.fetch(:end_date, Date.today).to_date
+    today_date=Date.today
+    @start_date = params.fetch(:start_date, today_date).to_date
+    @end_date = params.fetch(:end_date, today_date).to_date
    end
 
   def daily_report
@@ -22,7 +23,7 @@ class BloodGlucoseReport
   end
 
   def report
-    blood_glucoses = BloodGlucose.joins(:user).where(blood_glucoses: { check_up_date: @start_date..@end_date }).select('blood_glucoses.*,users.full_name as patient_name')
+    blood_glucoses = self.current_user.blood_glucoses.where(blood_glucoses: { check_up_date: @start_date..@end_date }).select("blood_glucoses.*,#{self.current_user.full_name} as patient_name")
     self.min_value = blood_glucoses.minimum(:level)
     self.max_value = blood_glucoses.maximum(:level)
     self.avg_value = blood_glucoses.average(:level)

@@ -22,6 +22,6 @@ layout :false
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.fetch(:user, {}).permit(:full_name, :email, :username, :password, :password_confirmation)
+    params.fetch(:user_patient, {}).permit(:full_name, :email, :username, :password, :password_confirmation)
   end
 end

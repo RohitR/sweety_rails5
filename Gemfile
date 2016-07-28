@@ -42,7 +42,14 @@ gem 'active_type'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'capybara', '~>2.7.1'
   gem 'factory_girl_rails', '~>4.7.0'
+  gem 'database_cleaner', '~>1.5.3'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-callback-matchers', '~>1.1.4'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
