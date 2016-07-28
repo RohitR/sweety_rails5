@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'momentjs-rails', '>= 2.9.0'
@@ -37,6 +37,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap_form'
 gem 'active_type'
 
 group :development, :test do
@@ -47,6 +48,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "rubycritic", :require => false
   gem 'rubocop'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
